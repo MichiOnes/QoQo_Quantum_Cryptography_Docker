@@ -1,0 +1,30 @@
+# Copyright (C) 2025 Miguel Salas Heras
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+# Archivo encargado de desplegar el contenedor docker del entorno de simuliacion QoQo Quantum Cryptography Docker
+
+services:
+  qoqo-quantum-cryptography-docker:
+    container_name: qoqo_quantum_cryptography_docker_container # nombre del contenedor
+    stdin_open: true # para la terminal
+    tty: true # para la terminal
+    working_dir: /volumen_archivos_docker/ # directorio de trabajo
+    build: # para construir la imagen
+      context: . # directorio donde se encuentra el dockerfile
+      dockerfile: Dockerfile # nombre del dockerfile
+    image: qoqo-quantum-cryptography-docker-image # nombre de la imagen
+    volumes:
+      - ./volumen_archivos_docker/:/volumen_archivos_docker/ # mapea tu directorio de trabajo local al contenedor
+      

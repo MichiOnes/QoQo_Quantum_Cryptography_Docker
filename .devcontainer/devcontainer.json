@@ -1,0 +1,37 @@
+// Copyright (C) 2025 Miguel Salas Heras
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+// Archivo encargado de crear el contenedor Docker del entorno de simulacion de QoQo Quantum Cryptography Docker
+// (devcontainer) y enlazarlo con Visual Studio Code para poder escribir código en Python y ejecutar Jupyter Notebooks de forma sencilla.
+
+{
+    "name": "QoQo Quantum Cryptography Docker",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "qoqo-quantum-cryptography-docker",
+    "mounts": [
+        "source=${localWorkspaceFolder}/volumen_archivos_docker,target=/volumen_archivos_docker,type=bind"
+      ],
+    "workspaceFolder": "/volumen_archivos_docker", // Carpeta de trabajo en el contenedor tiene que ser un directorio absoluto
+    "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",  // Extensión de Python
+        "ms-toolsai.jupyter", // Soporte para Jupyter Notebooks
+        "esbenp.prettier-vscode" // Prettier para formateo de código
+        ]
+      }
+    }
+}
+  
