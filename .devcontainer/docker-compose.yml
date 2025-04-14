@@ -13,18 +13,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-# Archivo encargado de desplegar el contenedor docker del entorno de simuliacion QoQo Quantum Cryptography Docker
+# File responsible for deploying the Docker container of the QoQo Quantum Cryptography simulation environment
 
 services:
   qoqo-quantum-cryptography-docker:
-    container_name: qoqo_quantum_cryptography_docker_container # nombre del contenedor
-    stdin_open: true # para la terminal
-    tty: true # para la terminal
-    working_dir: /volumen_archivos_docker/ # directorio de trabajo
-    build: # para construir la imagen
-      context: . # directorio donde se encuentra el dockerfile
-      dockerfile: Dockerfile # nombre del dockerfile
-    image: qoqo-quantum-cryptography-docker-image # nombre de la imagen
+    container_name: qoqo_quantum_cryptography_docker_container # container name
+    stdin_open: true # for enabling terminal
+    tty: true # for enabling terminal
+    working_dir: /volume_docker_files/ # working directory
+    build: # build image configuration
+      context: . # location of the Dockerfile
+      dockerfile: Dockerfile # dockerfile name
+    image: qoqo-quantum-cryptography-docker-image # image name
     volumes:
-      - ./volumen_archivos_docker/:/volumen_archivos_docker/ # mapea tu directorio de trabajo local al contenedor
-      
+      - ./volume_docker_files/:/volume_docker_files/ # mounting local directory to container

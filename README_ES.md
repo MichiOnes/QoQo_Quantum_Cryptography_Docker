@@ -10,14 +10,14 @@ Este repositorio contiene las instrucciones para instalar y ejecutar *QoQo Quant
 - [Como salir del Entorno de Simulación QoQo Quantum Cryptography Docker](#como-salir-del-entorno-de-simulación-qoqo-quantum-cryptography-docker)
 - [Como Reconstruir el Entorno de Simulación QoQo Quantum Cryptography Docker](#como-reconstruir-el-entorno-de-simulación-qoqo-quantum-cryptography-docker)
 - [Comandos Utiles de Docker Cli (Command Line Interface)](#comandos-utiles-de-docker-cli-command-line-interface)
-- [Posibles Errores en el Sistema Operativo Windows](#posibles-errores-en-el-sistema-operativo-windows)
+- [Sección FAQ (Frequently Asked Questions)](#sección-faq-frequently-asked-questions)
 
 ## Dependencias del Entorno de Simulación QoQo Quantum Cryptography Docker
 
 Para poder ejecutar el entorno de simulación **deberemos tener instaladas las siguiente dependencias**:
 1. ***Docker Desktop*** software de código abierto para el despliegue de aplicaciones en contenedores de software aislados del sistema principal de la máquina. Para descargarlo pulsa en el siguiente [enlace](https://www.docker.com/).
 2. ***Visual Studio Code*** editor de código fuente desarrollado por *Microsoft*. Para descargarlo pulsa en el siguiente [enlace](https://code.visualstudio.com/).
-3. ***Git*** software de control de versiones diseñado por *Linus Torvalds*, este lo utilizaremos para clonar este repositorio en nuestro *PC*, en caso de que no se adjunten los archivos por parte del profesor de la asignatura. Para descargarlo pulsa en el siguiente [enlace](https://git-scm.com/downloads).
+3. ***Git*** software de control de versiones diseñado por *Linus Torvalds*, este lo utilizaremos para clonar este repositorio en nuestro *PC*, **EN CASO DE QUE EL PROFESOR DE LA ASIGNATURA NO HAYA ADJUNTADO LOS ARCHIVOS**. Para descargarlo pulsa en el siguiente [enlace](https://git-scm.com/downloads).
 4. **Extensión *dev-containers* de *Visual Studio Code*** extensión de *Visual Studio Code* que nos permite ejecutar contenedores *Docker* y sustituir el entorno de ejecución de este editor código por el contendor. Para instarlar esta dependecia deberas seguir los siguientes pasos:
 
     1. Deberemos iniciar *Visual Studio Code* y **pulsar sobre el icono cuadrado que contiene con 4 cuadrados** donde uno de ellos sale del cuadrado principal, si dejamos el ratón sobre dicho icono nos aparecerá una viñeta marcandonos que es el icono de la pestaña *Extensions*, como se puede observar en la siguiente imagen:<br>
@@ -49,18 +49,18 @@ Para poder ejecutar el entorno de simulación **deberemos tener instaladas las s
 
 Una vez instaladas todas las dependecias destacadas en el punto anterior [Dependencias del Entorno de Simulación QoQo Quantum Cryptography Docker](#dependencias-del-entorno-de-simulación-qoqo-quantum-cryptography-docker) podremos ejecutar el Entorno de Simulación, realizando los siguientes pasos:
 
-1. En primer lugar, deberemos **especificar la ruta donde se encuentra nuestro el proyecto *QoQo Quantum Cryptography Docker***, para poder enlazar el contendor *docker* con la carpeta `volumen_archivos_docker`, consiguiendo que todos los archivos queden guardados en dicha carpeta. La especificación del *path* dependera del sistema operativo en el que vayamos a ejecutar el contenedor *docker*:
+1. En primer lugar, deberemos **especificar la ruta donde se encuentra nuestro el proyecto *QoQo Quantum Cryptography Docker***, para poder enlazar el contendor *docker* con la carpeta `volume_docker_files`, consiguiendo que todos los archivos queden guardados en dicha carpeta. La especificación del *path* dependera del sistema operativo en el que vayamos a ejecutar el contenedor *docker*:
     - ***Windows*** para especificar el *path* deberemos cambiar ciertas variables de los archivos del proyecto, para realizar esto seguir los siguientes pasos:
         1. Abrir el Explorador de Archivos de *Windows*.
         2. Navega hasta la carpeta del proyecto.
         3. Pulsa sobre la barra de direcciones (donde aparece el nombre de la carpeta).
-        4. Verás el *path* completo, como por ejemplo: `C:\Users\TuUsuario\Documents\MiCarpeta`.
+        4. Verás el *path* completo, como por ejemplo: `C:\Users\YourUser\Documents\MyFolder`.
         5. Copiar dicho *path* pulsado *Ctrl + C*.
-        6. Sustituir en el archivo [/.devcontainer/docker-compose.yml](./.devcontainer/docker-compose.yml) el volumen definido en la parte *Volumes* por `- C:/Users/TuUsuario/Documents/MiCarpeta/volumen_archivos_docker/:/volumen_archivos_docker/` **destacar que las barras \ tiene que cambiadas por barras / que son las soportados por *Docker***. A continuación, una imagen de como quedaría el archivo [/.devcontainer/docker-compose.yml](./.devcontainer/docker-compose.yml):<br>
+        6. Sustituir en el archivo [/.devcontainer/docker-compose.yml](./.devcontainer/docker-compose.yml) el volumen definido en la parte *Volumes* por `- C:/Users/YourUser/Documents/MyFolder/volume_docker_files/:/volume_docker_files/` **destacar que las barras \ deberán cambiarse por barras /, ya que, estas son las soportados por *Docker***. A continuación, una imagen de como quedaría el archivo [/.devcontainer/docker-compose.yml](./.devcontainer/docker-compose.yml):<br>
             <img src="./images_readme_md/windows_path/docker_compose_path_windows.png" alt="Windows Path Docker Compose" width="400" height="270">
 
         7. Guardar los cambios realizados en el archivo [/.devcontainer/docker-compose.yml](./.devcontainer/docker-compose.yml).
-        8. Sustituir en el archivo [/.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json) el *mount* definido en la parte *mounts* por `"source=${localEnv:USERPROFILE}/volumen_archivos_docker,target=/volumen_archivos_docker,type=bind"`. A continuación, una imagen de como quedaría el archivo [/.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json):<br>
+        8. Sustituir en el archivo [/.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json) el *mount* definido en la parte *mounts* por `"source=C:/Users/YourUser/Documents/MyFolder/volume_docker_files,target=/volume_docker_files,type=bind"` **destacar que las barras \ deberán cambiarse por barras /, ya que, estas son las soportados por *Docker***. A continuación, una imagen de como quedaría el archivo [/.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json):<br>
             <img src="./images_readme_md/windows_path/devcontainer_path_windows.png" alt="Windows Path Dev Container" width="400" height="270">
 
         9. Guardar los cambios realizados en el archivo [/.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json).
@@ -82,7 +82,7 @@ Una vez instaladas todas las dependecias destacadas en el punto anterior [Depend
 5. **Tras esto se nos abrirá una nueva ventana de *Visual Studio Code* que estará enlazada con el *docker* *QoQo Quantum Cryptography Docker***. A continuación, la pantalla que se abrirá al ejecutar el contenedor:<br>
     <img src="./images_readme_md/dev_container_execution/dev_container_link_visual_studio_code.png" alt="Dev Container Link Visual Studio Code" width="400" height="270">
 
-6. Para **comprobar que nos encontramos en el *Docker*** podremos** visualizar en la parte inferior** izquierda (donde se ubican las flechas destacadas anteriormente) de la nueva pantalla de *Visual Studio Code* algo así **`Dev Container @ desktop-linux`**, esto significa que estamos en el *Docker*.
+6. Para **comprobar que nos encontramos en el *Docker* podremos visualizar en la parte inferior izquierda** (donde se ubican las flechas destacadas anteriormente) de la nueva pantalla de *Visual Studio Code* algo así **`Dev Container @ desktop-linux`**, esto significa que estamos en el *Docker*.
 
 ## Como salir del Entorno de Simulación QoQo Quantum Cryptography Docker
 
@@ -116,16 +116,20 @@ En este apartado es una lista de aquellos **comandos utiles de *Docker Cli***:
 
 **Cabe destacar que todas estas acciones también se pueden realizar desde la aplicación de *Docker Desktop***.
 
-## Posibles Errores en el Sistema Operativo Windows
+## Sección FAQ (Frequently Asked Questions)
 
-Si en el **sistema operativo *Windows* al ejecutar el *Docker* tiene lugar un error de *Mount denied* o *permission denied***, deberemos realizar los **siguientes pasos para solucionarlo**:
+En esta sección trataremos posibles errores en la ejecución del entorno de simulación:
 
-1. Abrir la aplicación de *Docker Desktop*.
-2. Pulsar en el icono del engranaje, ubicado en la parte superior derecha, que nos llevará a *Settings*.
-3. En el menú lateral, pulse en: *Resources* --> *File sharing*.
-4. En esta página, si bajamos hasta el final de esta, podremos ver una lista de carpetas o discos permitidos para compartir con contenedores Docker.
-5. Verificá que el disco o carpetas donde se ubique el proyecto esté en esa lista. Por ejemplo, si tu proyecto está en `D:\proyectos\docker`, el disco `D:` debe estar compartido. Si solo aparece `C:` pero tu código está en otro disco, seleccione el disco o la carpeta manualmente y pulse sobre el simbolo *+* para añadir el *path* selecionado a la lista.
-6. Pulse sobre *Apply & Restart* para aplicar los cambios realizados.
+1. Si en el **sistema operativo *Windows* al ejecutar el *Docker* tiene lugar un error de *Mount denied* o *permission denied***, deberemos realizar los **siguientes pasos para solucionarlo**:
+
+    1. Abrir la aplicación de *Docker Desktop*.
+    2. Pulsar en el icono del engranaje, ubicado en la parte superior derecha, que nos llevará a *Settings*.
+    3. En el menú lateral, pulse en: *Resources* --> *File sharing*.
+    4. En esta página, si bajamos hasta el final de esta, podremos ver una lista de carpetas o discos permitidos para compartir con contenedores Docker.
+    5. Verificá que el disco o carpetas donde se ubique el proyecto esté en esa lista. Por ejemplo, si tu proyecto está en `D:\proyectos\docker`, el disco `D:` debe estar compartido. Si solo aparece `C:` pero tu código está en otro disco, seleccione el disco o la carpeta manualmente y pulse sobre el simbolo *+* para añadir el *path* selecionado a la lista.
+    6. Pulse sobre *Apply & Restart* para aplicar los cambios realizados.
+
+2. En el **sistema operativo *Windows* podremos tener la versión de WSL (Windows Subsystem for Linux) desactualizada** para solucionar este error deberemos ejecutar en la consola de *Windows* `wsl --update`
 
 ### Licencia
 

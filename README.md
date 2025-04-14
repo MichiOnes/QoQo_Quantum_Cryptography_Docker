@@ -12,14 +12,14 @@ To go to the documentation in Spanish (this README but in Spanish), click on the
 - [How to exit from the QoQo Quantum Cryptography Docker](#how-to-exit-from-the-qoqo-quantum-cryptography-docker)
 - [How to Rebuild the QoQo Quantum Cryptography Docker](#how-to-rebuild-the-qoqo-quantum-cryptography-docker)
 - [Useful Docker Cli (Command Line Interface) Commands](#useful-dockere-cli-command-line-interface-commands)
-- [Possible Errors with Windows Operating System](#possible-errors-with-windows-operating-system)
+- [FAQ Section (Frequently Asked Questions)](#faq-section-frequently-asked-questions)
 
 ## Dependencies of the QoQo Quantum Cryptography Docker
 
 To run the QoQo Docker we **should have the following dependencies already installed**:
 1. ***Docker Desktop***: open source software for deploying applications on software containers isolated from the main host. To download it, click on the next link [link](https://www.docker.com/).
 2. ***Visual Studio Code*** (VSC): Integrated Development Environment (IDE) for source code developed by *Microsoft*.  To download it, click on the next link [link](https://code.visualstudio.com/).
-3. ***Git***: version control software designed by *Linus Torvalds*. We will use *Git* to clone this repository on our *PC*, in case the files are not provided by the course teacher. To download it, click on the next link [link](https://git-scm.com/downloads).
+3. ***Git***: version control software designed by *Linus Torvalds*. We will use *Git* to clone this repository on our *PC*,**IN CASE THE FILES ARE NOT PROVIDED BY THE COURSE TEACHER**. To download it, click on the next link [link](https://git-scm.com/downloads).
 4. **Extension *dev-containers* by *Visual Studio Code***: *Visual Studio Code* extension that allows you to run *Docker* containers and to replace the execution environment used and displayed in *Visual Studio Code* by that of the *Docker* container. To install this dependency, follow the next steps:
 
     1. Open *Visual Studio Code* and **click on the square icon that contains four small squares**  (one is separated from the other three). Leaving the mouse pointer on that icon will display a label stating that this is the icon for the *Extensions*, as shown in the next image:<br>
@@ -51,19 +51,19 @@ To run the QoQo Docker we **should have the following dependencies already insta
 
 Once you have installed all the required dependencies listed in the previous section [Dependencies of the QoQo Quantum Cryptography Docker](#dependencies-of-the-qoqo-quantum-cryptography-docker) we are ready to run the simulation environment, following the next steps:
 
-1. First, we must **specify the path to the project  *QoQo Quantum Cryptography Docker*** in your **PC**, to link the *docker* container with the folder `volumen_archivos_docker`. This will allow that all the files stay in that folder (i.e., it will be the working folder). The *path* must be specified differently depending on the operating system where the *docker* is being deployed:
+1. First, we must **specify the path to the project  *QoQo Quantum Cryptography Docker*** in your **PC**, to link the *docker* container with the folder `volume_docker_files`. This will allow that all the files stay in that folder (i.e., it will be the working folder). The *path* must be specified differently depending on the operating system where the *docker* is being deployed:
     - ***Windows***: in this case we will have to modify some variables defined in the project files. Follow the next steps:
         1. Open the *Windows* File Explorer.
         2. Go to the project folder.
         3. Click on the address bar (where the name of the folder is shown).
-        4. The full *path* will be shown, for example: `C:\Users\TuUsuario\Documents\MiCarpeta`.
+        4. The full *path* will be shown, for example: `C:\Users\YourUser\Documents\MyFolder`.
         5. Copy that full *path* clicking the keyboard keys *Ctrl + C*.
-        6. Replace in the file [/.devcontainer/docker-compose.yml](./.devcontainer/docker-compose.yml) the volume defined in the section *Volumes* with `- C:/Users/TuUsuario/Documents/MiCarpeta/volumen_archivos_docker/:/volumen_archivos_docker/`. **Notice that the left-side bars \ must be replaced by right-side bars / , which are the ones supported by  *Docker***. Next image shows a snapshot of the file after modification [/.devcontainer/docker-compose.yml](./.devcontainer/docker-compose.yml):<br>
+        6. Replace in the file [/.devcontainer/docker-compose.yml](./.devcontainer/docker-compose.yml) the volume defined in the section *Volumes* with `- C:/Users/YourUser/Documents/MyFolder/volume_docker_files/:/volume_docker_files/`. **Notice that the left-side bars \ must be replaced by right-side bars / , which are the ones supported by  *Docker***. Next image shows a snapshot of the file after modification [/.devcontainer/docker-compose.yml](./.devcontainer/docker-compose.yml):<br>
             <img src="./images_readme_md/windows_path/docker_compose_path_windows.png" alt="Windows Path Docker Compose" width="400" height="270">
 
         7. Save the changes done in the file [/.devcontainer/docker-compose.yml](./.devcontainer/docker-compose.yml).
 
-        8. Replace in the file [/.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json) the *mount* defined in the section *mounts* by `"source=${localEnv:USERPROFILE}/volumen_archivos_docker,target=/volumen_archivos_docker,type=bind"`. Next image shows a snapshot of the file after modification [/.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json):<br>
+        8. Replace in the file [/.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json) the *mount* defined in the section *mounts* by `"source=C:/Users/YourUser/Documents/MyFolder/volume_docker_files,target=/volume_docker_files,type=bind"`. **Notice that the left-side bars \ must be replaced by right-side bars / , which are the ones supported by  *Docker***. Next image shows a snapshot of the file after modification [/.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json):<br>
             <img src="./images_readme_md/windows_path/devcontainer_path_windows.png" alt="Windows Path Dev Container" width="400" height="270">
 
         9. Save the changes done in the file [/.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json).
@@ -122,16 +122,20 @@ List of  **useful *Docker Cli* commands**:
 
 **Notice that all these actions can also be run from *Docker Desktop***.
 
-## Possible Errors with Windows Operating System
+## FAQ Section (Frequently Asked Questions)
 
-If **running the *Docker* on *Windows* operating system, raises the error *Mount denied* or *permission denied***, we can follow the next steps to solve the issue:
+In this section, we will address possible errors when running the simulation environment:
 
-1. Open *Docker Desktop*.
-2. Click on the configuration (gear) icon, located in the top right-hand corner, that will open the *Settings*.
-3. In the left panel, click on *Resources* --> *File sharing*.
-4. In this page, at the bottom, we will see a list of folders or disks that can be shared with *Docker* containers.
-5. Check that the disk or folder where the project is located appears in that list. For example, if your project is in `D:\proyectos\docker`, the disk `D:` should be shared. If the only disk appearing is `C:` but your project is in a different disk, select the disk or folder and click on the symbol *+* to add that *path* to the list.
-6. Click on *Apply & Restart* to apply the changes.
+1. If **running the *Docker* on *Windows* operating system, raises the error *Mount denied* or *permission denied***, we can follow the next steps to solve the issue:
+
+    1. Open *Docker Desktop*.
+    2. Click on the configuration (gear) icon, located in the top right-hand corner, that will open the *Settings*.
+    3. In the left panel, click on *Resources* --> *File sharing*.
+    4. In this page, at the bottom, we will see a list of folders or disks that can be shared with *Docker* containers.
+    5. Check that the disk or folder where the project is located appears in that list. For example, if your project is in `D:\proyectos\docker`, the disk `D:` should be shared. If the only disk appearing is `C:` but your project is in a different disk, select the disk or folder and click on the symbol *+* to add that *path* to the list.
+    6. Click on *Apply & Restart* to apply the changes.
+
+2. **On Windows, you may have an outdated version of WSL (Windows Subsystem for Linux)**. To fix this error, simply run the following command in the Windows console: `wsl --update`
 
 ### License
 

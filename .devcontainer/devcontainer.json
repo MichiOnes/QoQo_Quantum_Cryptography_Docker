@@ -13,23 +13,23 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-// Archivo encargado de crear el contenedor Docker del entorno de simulacion de QoQo Quantum Cryptography Docker
-// (devcontainer) y enlazarlo con Visual Studio Code para poder escribir código en Python y ejecutar Jupyter Notebooks de forma sencilla.
+// File responsible for creating the Docker container for the QoQo Quantum Cryptography simulation environment 
+// (devcontainer) and linking it with Visual Studio Code to easily write Python code and run Jupyter Notebooks.
 
 {
     "name": "QoQo Quantum Cryptography Docker",
     "dockerComposeFile": "docker-compose.yml",
     "service": "qoqo-quantum-cryptography-docker",
     "mounts": [
-        "source=${localWorkspaceFolder}/volumen_archivos_docker,target=/volumen_archivos_docker,type=bind"
+        "source=${localWorkspaceFolder}/volume_docker_files,target=/volume_docker_files,type=bind"
       ],
-    "workspaceFolder": "/volumen_archivos_docker", // Carpeta de trabajo en el contenedor tiene que ser un directorio absoluto
+    "workspaceFolder": "/volume_docker_files", // The working folder in the container must be an absolute path
     "customizations": {
     "vscode": {
       "extensions": [
-        "ms-python.python",  // Extensión de Python
-        "ms-toolsai.jupyter", // Soporte para Jupyter Notebooks
-        "esbenp.prettier-vscode" // Prettier para formateo de código
+        "ms-python.python",  // Python Extension
+        "ms-toolsai.jupyter", // Support for Jupyter Notebooks
+        "esbenp.prettier-vscode" // Prettier for code formatting
         ]
       }
     }
