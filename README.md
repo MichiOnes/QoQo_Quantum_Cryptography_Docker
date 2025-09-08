@@ -146,3 +146,13 @@ This project is licenced under GNU GENERAL PUBLIC LICENSE v3.0 - see file [LICEN
 Designed and Created by Miguel Salas Heras [LinkedIn](https://www.linkedin.com/in/miguelsalasheras/), as part of his Bachelor Thesis *Diseño y desarrollo de entorno de simulación de protocolos criptográficos pre-cuánticos, cuánticos y post-cuánticos*
 
 Supervisor of the Bachelor Thesis: Ana Isabel Gonzalez-Tablas Ferreres [LinkedIn](https://www.linkedin.com/in/ana-isabel-gonzalez-tablas-ferreres-31b5331/)
+
+### Academic Reference  
+
+This simulation environment is part of the paper:  
+
+*The QoQo Docker: A Docker Environment for Learning Quantum and Post-Quantum Cryptography in Python*<br>
+Authors: Miguel Salas Heras and Ana Isabel González-Tablas Ferreres<br>
+Presented at the **X National Conference on Cybersecurity Research (JNIC 2025)**, in the *Training I* section.<br>
+
+The full paper can be accessed at the following [link](https://zaguan.unizar.es/record/161724/files/BOOK-2025-377.pdf).

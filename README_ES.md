@@ -1,6 +1,6 @@
 # QoQo Quantum Cryptography Docker
 
-*QoQo Quantum Cryptography Docker* es un entorno de simulación de protocolos criptográficos pre-cuánticos, cuánticos y post-cuánticos, este utiliza *software* *[Docker](https://www.docker.com/)* para consiguir un entorno aislado con todas las librerías necesiarias para la realización de distintas prácticas de la asignatura *Internet cuántica y criptografía cuántica* del *Master Universitario en Tecnologías e Ingeniería Cuánticas* de la *Universidad Carlos 3 de Madrid*.
+*QoQo Quantum Cryptography Docker* es un entorno de simulación de protocolos criptográficos pre-cuánticos, cuánticos y pos-cuánticos, este utiliza *software* *[Docker](https://www.docker.com/)* para consiguir un entorno aislado con todas las librerías necesiarias para la realización de distintas prácticas de la asignatura *Internet cuántica y criptografía cuántica* del *Master Universitario en Tecnologías e Ingeniería Cuánticas* de la *Universidad Carlos 3 de Madrid*.
 
 Este repositorio contiene las instrucciones para instalar y ejecutar *QoQo Quantum Cryptography Docker*.
 
@@ -137,6 +137,16 @@ Este proyecto está licenciado bajo la Licencia Pública General GNU v3.0 - cons
 
 ### Créditos 
 
-Diseñado y Creado por Miguel Salas Heras [LinkedIn](https://www.linkedin.com/in/miguelsalasheras/), como parte del Trabajo de Fin de Grado *Diseño y desarrollo de entorno de simulación de protocolos criptográficos pre-cuánticos, cuánticos y post-cuánticos*
+Diseñado y Creado por Miguel Salas Heras [LinkedIn](https://www.linkedin.com/in/miguelsalasheras/), como parte del Trabajo de Fin de Grado *Diseño y desarrollo de entorno de simulación de protocolos criptográficos pre-cuánticos, cuánticos y pos-cuánticos*
 
 Tutora del Trabajo de Fin de Grado Ana Isabel Gonzalez-Tablas Ferreres [LinkedIn](https://www.linkedin.com/in/ana-isabel-gonzalez-tablas-ferreres-31b5331/)
+
+### Referencia académica  
+
+Este entorno de simulación forma parte del paper:  
+
+*The QoQo Docker: A Docker Environment for Learning Quantum and Post-Quantum Cryptography in Python*<br>
+Autores: Miguel Salas Heras y Ana Isabel González-Tablas Ferreres<br>
+Presentado en las **X Jornadas Nacionales de Investigación en Ciberseguridad (JNIC 2025)**, en la sección *Formación I*.<br>
+
+El paper completo puede consultarse en el siguiente [enlace](https://zaguan.unizar.es/record/161724/files/BOOK-2025-377.pdf).
